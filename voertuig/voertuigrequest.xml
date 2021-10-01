@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>54xvsn</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>

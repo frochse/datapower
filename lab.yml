@@ -1,0 +1,37 @@
+version: '2'
+services:
+  mockservicea:
+    build: ${WORKDIR}/soapuimock
+    privileged: true
+    ports:
+      - "9080:8080"
+      - "8443:8443"
+    environment:
+      MOCK_SERVICE_NAME: "VoertuigVerrijkingServiceMockService"
+      PROJECT: "/home/soapui/soapui-prj/default-soapui-project.xml"
+  datapower:
+    build: ${WORKDIR}
+    privileged: true
+    ports:
+      - "9090:9090"
+      - "8000-8020:8000-8020"
+      - "8022-8081:8022-8081"
+    environment:
+      DATAPOWER_ACCEPT_LICENSE: "true"
+      DATAPOWER_INTERACTIVE: "true"
+    volumes:
+      - ${WORKDIR}/config:/drouter/config
+      - ${WORKDIR}/local:/drouter/local
+  ldap:
+    image: osixia/openldap:latest
+    privileged: true
+    ports:
+      - "389:389"
+      - "636:636" 
+    environment:
+      LDAP_ORGANISATION: "education"
+      LDAP_DOMAIN: "vs.com"
+      LDAP_ADMIN_PASSWORD: "qw34er"
+ 
+      
+ 

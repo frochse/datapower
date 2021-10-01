@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" version="1.0" xmlns:ns1="http://www.exchange.nl/exchange/wsdata/1.0" xmlns:tns="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.exchange.nl/exchange/wsdata/1.0" schemaLocation="DossierService_1.0_types.xsd"/>
+  <xs:element name="calculatie" type="ns1:Calculatie"/>
+  <xs:element name="dossier" type="ns1:Dossier"/>
+  <xs:element name="expertisebureau" type="ns1:Expertisebureau"/>
+  <xs:element name="addCalculatie" type="tns:addCalculatie"/>
+  <xs:element name="addCalculatieResponse" type="tns:addCalculatieResponse"/>
+  <xs:element name="updateFoto" type="tns:updateFoto"/>
+  <xs:element name="updateFotoResponse" type="tns:updateFotoResponse"/>
+  <xs:element name="deleteFoto" type="tns:deleteFoto"/>
+  <xs:element name="deleteFotoResponse" type="tns:deleteFotoResponse"/>
+  <xs:element name="getDossier" type="tns:getDossier"/>
+  <xs:element name="getDossierResponse" type="tns:getDossierResponse"/>
+  <xs:element name="getDossierPDF" type="tns:getDossierPDF"/>
+  <xs:element name="getDossierPDFResponse" type="tns:getDossierPDFResponse"/>
+  <xs:element name="getDossiers" type="tns:getDossiers"/>
+  <xs:element name="getDossiersResponse" type="tns:getDossiersResponse"/>
+  <xs:element name="getFoto" type="tns:getFoto"/>
+  <xs:element name="getFotoResponse" type="tns:getFotoResponse"/>
+  <xs:element name="getFotoIndexes" type="tns:getFotoIndexes"/>
+  <xs:element name="getFotoIndexesResponse" type="tns:getFotoIndexesResponse"/>
+  <xs:element name="getFotos" type="tns:getFotos"/>
+  <xs:element name="getFotosResponse" type="tns:getFotosResponse"/>
+  <xs:element name="createDossier" type="tns:createDossier"/>
+  <xs:element name="createDossierResponse" type="tns:createDossierResponse"/>
+  <xs:element name="createSchademelding" type="tns:createSchademelding"/>
+  <xs:element name="createSchademeldingResponse" type="tns:createSchademeldingResponse"/>
+  <xs:element name="updateCarrosserieSchade" type="tns:updateCarrosserieSchade"/>
+  <xs:element name="updateCarrosserieSchadeResponse" type="tns:updateCarrosserieSchadeResponse"/>
+  <xs:element name="updatePolisEnDekking" type="tns:updatePolisEnDekking"/>
+  <xs:element name="updatePolisEnDekkingResponse" type="tns:updatePolisEnDekkingResponse"/>
+  <xs:element name="setSchadehersteller" type="tns:setSchadehersteller"/>
+  <xs:element name="setSchadeherstellerResponse" type="tns:setSchadeherstellerResponse"/>
+  <xs:element name="updateVoertuig" type="tns:updateVoertuig"/>
+  <xs:element name="updateVoertuigResponse" type="tns:updateVoertuigResponse"/>
+  <xs:element name="updatePersoonsgegevens" type="tns:updatePersoonsgegevens"/>
+  <xs:element name="updatePersoonsgegevensResponse" type="tns:updatePersoonsgegevensResponse"/>
+  <xs:element name="aanvragenVoorexpertise" type="tns:aanvragenVoorexpertise"/>
+  <xs:element name="aanvragenVoorexpertiseResponse" type="tns:aanvragenVoorexpertiseResponse"/>
+  <xs:element name="aanbiedenDossier" type="tns:aanbiedenDossier"/>
+  <xs:element name="aanbiedenDossierResponse" type="tns:aanbiedenDossierResponse"/>
+  <xs:element name="afrondenDossier" type="tns:afrondenDossier"/>
+  <xs:element name="afrondenDossierResponse" type="tns:afrondenDossierResponse"/>
+  <xs:element name="annulerenDossier" type="tns:annulerenDossier"/>
+  <xs:element name="annulerenDossierResponse" type="tns:annulerenDossierResponse"/>
+  <xs:element name="setExpertiseResultaat" type="tns:setExpertiseResultaat"/>
+  <xs:element name="setExpertiseResultaatResponse" type="tns:setExpertiseResultaatResponse"/>
+  <xs:element name="hertoewijzenDossier" type="tns:hertoewijzenDossier"/>
+  <xs:element name="hertoewijzenDossierResponse" type="tns:hertoewijzenDossierResponse"/>
+  <xs:element name="updateReferentie" type="tns:updateReferentie"/>
+  <xs:element name="updateReferentieResponse" type="tns:updateReferentieResponse"/>
+  <xs:element name="routerenDossier" type="tns:routerenDossier"/>
+  <xs:element name="routerenDossierResponse" type="tns:routerenDossierResponse"/>
+  <xs:element name="heropenenDossier" type="tns:heropenenDossier"/>
+  <xs:element name="heropenenDossierResponse" type="tns:heropenenDossierResponse"/>
+  <xs:element name="getAttachment" type="tns:getAttachment"/>
+  <xs:element name="getAttachmentResponse" type="tns:getAttachmentResponse"/>
+  <xs:element name="deleteAttachment" type="tns:deleteAttachment"/>
+  <xs:element name="deleteAttachmentResponse" type="tns:deleteAttachmentResponse"/>
+  <xs:element name="updateAttachment" type="tns:updateAttachment"/>
+  <xs:element name="updateAttachmentResponse" type="tns:updateAttachmentResponse"/>
+  <xs:element name="ValidationFault" type="tns:ValidationFault"/>
+  <xs:element name="SecurityFault" type="tns:SecurityFault"/>
+  <xs:element name="ProcesFault" type="tns:ProcesFault"/>
+  <xs:element name="SystemFault" type="tns:SystemFault"/>
+  <!--Faults-->
+  <xs:complexType name="ValidationFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat een of meer van de opgegeven parameters niet voldoen aan de constraints op die parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+      <xs:element name="details">
+        <xs:annotation>
+          <xs:documentation>Gedetailleerd overzicht van de parameters die niet voldoen; voor iedere parameter is een key aanwezig, met als value de foutmelding</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" minOccurs="0" type="xs:string"/>
+                  <xs:element name="value" minOccurs="0" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat het opgegeven relatienummer niet de vereiste toegang tot het opgegeven dossier</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcesFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat deze operatie niet is toegestaan binnen het proces van eXchange</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SystemFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat er een interne fout in het systeem is opgetreden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Operation Types-->
+  <xs:complexType name="getFotos">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotosResponse">
+    <xs:sequence>
+      <xs:element name="foto" type="ns1:Foto" minOccurs="0" maxOccurs="10"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setSchadehersteller">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relatienummerSchadehersteller" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van het schadeherstelbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relatienummerDealer" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van het dealerbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setSchadeherstellerResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossierResponse">
+    <xs:sequence>
+      <xs:element name="dossier" type="ns1:Dossier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotoIndexes">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotoIndexesResponse">
+    <xs:sequence>
+      <xs:element name="index" type="xs:int" minOccurs="0" maxOccurs="10"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateVoertuig">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="voertuigdata" type="ns1:Voertuig"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateVoertuigResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="addCalculatie">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="xrecords" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het calculatiebestand in het xrecords formaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="output90" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het calculatiebestand in het output90 formaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="print" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het calculatiebestand in het print formaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addCalculatieResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="deleteFoto">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Index van de foto die verwijderd moet worden. Waarde ligt tussen 0 en 9</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteFotoResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="updatePolisEnDekking">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="polisdata" type="ns1:Polisdata">
+        <xs:annotation>
+          <xs:documentation>De polisgegevens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dekking" type="ns1:Dekking">
+        <xs:annotation>
+          <xs:documentation>De dekking van dit dossier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="toelichting" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Toelichting op de afgegeven dekking; Maximaal 250 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePolisEnDekkingResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getFoto">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Index van de foto die opgehaald moet worden. Waarde ligt tussen 0 en 9</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotoResponse">
+    <xs:sequence>
+      <xs:element name="foto" type="ns1:Foto"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createSchademelding">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int"/>
+      <xs:element name="nederlandsKenteken" type="xs:boolean"/>
+      <xs:element name="kenteken" type="xs:string"/>
+      <xs:element name="serienummer" type="xs:int"/>
+      <xs:element name="polisnummer" type="xs:string"/>
+      <xs:element name="crwamCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="schadedatum" type="xs:date"/>
+      <xs:element name="schadeOorzaak" type="ns1:SchadeOorzaak"/>
+      <xs:element name="waarborgfonds" type="xs:boolean"/>
+      <xs:element name="schadecoordinaten" type="xs:string" minOccurs="0"/>
+      <xs:element name="handmatigVerrijken" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createSchademeldingResponse">
+    <xs:sequence>
+      <xs:element name="dossiercreatieresultaat" type="ns1:DossierCreatieResultaat" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateFoto">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fotoBytes" type="xs:base64Binary" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Aantal bytes van de foto</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mimeType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Mime type van de foto</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Plaats van de foto</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateFotoResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="createDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nederlandsKenteken" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Aangeven of het voertuig een nederlands kenteken voert</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kenteken" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Nederlandse kentekens worden alleen zonder streepjes geaccepteerd.
+            Maximale lengte is 15 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het serienummer van de verzekeraar</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="polisnummer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het polisnummer op de groene kaart (dus met uitzondering van het serienummer).
+            Maximale lengte is 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="crwamCode" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indien van toepassing: de CRWAM code op de groene kaart</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="schadedatum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum waarop de schade is ontstaan. Deze datum mag niet in de toekomst liggen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="schadeOorzaak" type="ns1:SchadeOorzaak">
+        <xs:annotation>
+          <xs:documentation>Schade oorzaak</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="waarborgfonds" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Valt de schade onder het waarborgfonds?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createDossierResponse">
+    <xs:sequence>
+      <xs:element name="dossiernummer" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateCarrosserieSchade">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="carrosserieschade" type="ns1:CarrosserieSchade"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateCarrosserieSchadeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="aanvragenVoorexpertise">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="aanvraag" type="ns1:VoorexpertiseAanvraag"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aanvragenVoorexpertiseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="setExpertiseResultaat">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int"/>
+      <xs:element name="dossiernummer" type="xs:long"/>
+      <xs:element name="expertiseResultaat" type="ns1:ExpertiseResultaat"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setExpertiseResultaatResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getDossiers">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="criteria" type="ns1:DossierCriteria">
+        <xs:annotation>
+          <xs:documentation>Criteria voor het filteren van dossiers</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paging" type="ns1:PagingCriteria">
+        <xs:annotation>
+          <xs:documentation>Criteria voor het pagineren van het resultaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="order" type="ns1:OrderCriteria" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Criteria voor het ordenen van de resultaten</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossiersResponse">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:PagedResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossierPDF">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossierPDFResponse">
+    <xs:sequence>
+      <xs:element name="pdf" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>De bytes van het gegenereerde PDF bestand</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePersoonsgegevens">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verzekerde" type="ns1:Persoon">
+        <xs:annotation>
+          <xs:documentation>NAW-gegevens van de verzekerde</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="berijder" type="ns1:Persoon" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>De NAW-gegevens van de berijder van het voertuig toen de schade werd opgelopen. Alleen van toepassing indien de berijder niet de verzekerde is.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePersoonsgegevensResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="aanbiedenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aanbiedenDossierResponse">
+    <xs:sequence>
+      <xs:element name="resultaat" type="ns1:AanbiedenResultaat">
+        <xs:annotation>
+          <xs:documentation>Het resultaat van het aanbieden van dit dossier.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="afrondenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="herstelGereed" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum waarop het herstel gereed is. Mag maximaal 2 dagen in de toekomst liggen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="afrondenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="annulerenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="annulerenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="hertoewijzenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nieuwRelatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het relatienummer waarnaartoe toegewezen wordt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hertoewijzenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="updateReferentie">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="referentie" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>De referentiecode van deze gebruiker. Referentiecodes mogen maximaal 20 tekens groot zijn.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateReferentieResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="routerenDossier">
+    <!--Intern gebruik-->
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int"/>
+      <xs:element name="dossiernummer" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="routerenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="heropenenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze operatie aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer van het dossier dat heropend dient te worden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="heropenenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getAttachment">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int" minOccurs="0"/>
+      <xs:element name="dossiernummer" type="xs:long" minOccurs="0"/>
+      <xs:element name="attachmentType" type="ns1:AttachmentType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAttachmentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="ns1:Attachment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteAttachment">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int" minOccurs="0"/>
+      <xs:element name="dossiernummer" type="xs:long" minOccurs="0"/>
+      <xs:element name="attachmentType" type="ns1:AttachmentType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteAttachmentResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="updateAttachment">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int" minOccurs="0"/>
+      <xs:element name="dossiernummer" type="xs:long" minOccurs="0"/>
+      <xs:element name="attachment" type="ns1:Attachment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateAttachmentResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

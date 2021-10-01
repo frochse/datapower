@@ -1,0 +1,36 @@
+#!/bin/bash
+
+export WORKDIR=`pwd`
+
+Start ()
+{
+  docker-compose -f ./lab.yml up --force-recreate --remove-orphans
+}
+
+Stop ()
+{ 
+  docker-compose -f ./lab.yml stop
+}
+
+Clean ()
+{
+  docker rmi `docker images | awk '/^datapower*/{ print $3}'` -f
+  docker rm `docker ps -a | grep datapower | awk '{ print $1}'`
+}
+
+Restart ()
+{
+  Clean
+  Start
+}
+
+
+
+ case $1 in 
+      start  ) Start   ;;
+      stop   ) Stop    ;;
+      clean  ) Clean    ;;
+      restart) Restart ;;
+      *      ) echo "$0: unknown argument: $1 usage: start, stop, clean or restart";;
+    esac
+

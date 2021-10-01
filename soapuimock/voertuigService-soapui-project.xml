@@ -1,0 +1,2308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="voertuigService" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" id="96b6acf4-897a-4a1a-b914-5677ac347859" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding" type="wsdl" bindingName="{http://SchadegarantLibrary/VoertuigVerrijking/Binding}VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService/WEB-INF/wsdl/nl/exchange/webservices/_10/VoertuigVerrijkingService_VoertuigVerrijkingService.wsdl" id="7a2f32c9-0780-4a70-affd-b6f294ab3959" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService/WEB-INF/wsdl/nl/exchange/webservices/_10/VoertuigVerrijkingService_VoertuigVerrijkingService.wsdl"><con:part><con:url>http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService/WEB-INF/wsdl/nl/exchange/webservices/_10/VoertuigVerrijkingService_VoertuigVerrijkingService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="VoertuigVerrijkingService_VoertuigVerrijkingHttp_Service" targetNamespace="http://SchadegarantLibrary/VoertuigVerrijking/Binding" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:Port_0="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://SchadegarantLibrary/VoertuigVerrijking/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="VoertuigVerrijkingService.wsdl" namespace="http://SchadegarantLibrary/VoertuigVerrijking"/>
+  <wsdl:binding name="VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding" type="Port_0:VoertuigVerrijking">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getVoertuig">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getVoertuigRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVoertuigResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SecurityFault">
+        <soap:fault name="SecurityFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SytemFault">
+        <soap:fault name="SytemFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="VailidationFault">
+        <soap:fault name="VailidationFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VoertuigVerrijkingService_VoertuigVerrijkingHttpService">
+    <wsdl:port binding="this:VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding" name="VoertuigVerrijkingService_VoertuigVerrijkingHttpPort">
+      <soap:address location="http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService/WEB-INF/wsdl/nl/exchange/webservices/_10/VoertuigVerrijkingService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="VoertuigVerrijking" targetNamespace="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bons2="http://www.exchange.nl/exchange/wsdata/1.0" xmlns:bons3="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" xmlns:tns="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://SchadegarantLibrary/VoertuigVerrijking">
+      <xsd:import namespace="http://www.exchange.nl/exchange/wsdata/1.0" schemaLocation="../../../../DossierService_1.0_types.xsd"/>
+      <xsd:import namespace="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" schemaLocation="../../../../DossierService_1.0_operations.xsd"/>
+      <xsd:import namespace="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService" schemaLocation="VoertuigVerrijkingsService_types.xsd"/>
+      <xsd:element name="getVoertuig">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:verrijkVoertuig"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getVoertuigResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="voertuig" nillable="true" type="bons2:Voertuig"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SecurityFault_element" nillable="true" type="bons3:SecurityFault"/>
+      <xsd:element name="SystemFault_element" nillable="true" type="bons3:SystemFault"/>
+      <xsd:element name="ValidationFault_element" nillable="true" type="bons3:ValidationFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getVoertuigRequestMsg">
+    <wsdl:part element="tns:getVoertuig" name="getVoertuigParameters"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuigResponseMsg">
+    <wsdl:part element="tns:getVoertuigResponse" name="getVoertuigResult"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuig_SecurityFaultMsg">
+    <wsdl:part element="tns:SecurityFault_element" name="SecurityFault"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuig_SytemFaultMsg">
+    <wsdl:part element="tns:SystemFault_element" name="SytemFault"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuig_VailidationFaultMsg">
+    <wsdl:part element="tns:ValidationFault_element" name="VailidationFault"/>
+  </wsdl:message>
+  <wsdl:portType name="VoertuigVerrijking">
+    <wsdl:operation name="getVoertuig">
+      <wsdl:input message="tns:getVoertuigRequestMsg" name="getVoertuigRequest"/>
+      <wsdl:output message="tns:getVoertuigResponseMsg" name="getVoertuigResponse"/>
+      <wsdl:fault message="tns:getVoertuig_SecurityFaultMsg" name="SecurityFault"/>
+      <wsdl:fault message="tns:getVoertuig_SytemFaultMsg" name="SytemFault"/>
+      <wsdl:fault message="tns:getVoertuig_VailidationFaultMsg" name="VailidationFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService/WEB-INF/wsdl/DossierService_1.0_types.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.exchange.nl/exchange/wsdata/1.0" version="1.0" xmlns:tns="http://www.exchange.nl/exchange/wsdata/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--RELATIES-->
+  <xs:complexType name="Volmacht">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Unieke identificatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="crwamCode" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>CRWAM code van de volmacht</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="naam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Naam van de volmacht; maximaal 100 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ATP">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Unieke identificatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="afmNummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>AFM nummer van de tussenpersoon</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="naam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Naam van de ATP; maximaal 100 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Verzekeraar">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Unieke identificatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Serienummer van de verzekeraar</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="naam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Naam van de verzekeraar; maximaal 50 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="afdelingsnaam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Naam van de afdeling; maximaal 50 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Expertisebureau">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Unieke identificatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="naam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Naam van dit expertisebureau; maximaal 50
+						tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Schadehersteller">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Unieke identificatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="naam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Naam van het schadeherstelbedrijf; maximaal
+						100 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="bezoekadres" type="tns:Adres">
+        <xs:annotation>
+          <xs:documentation>Bezoekersadres van het
+						herstelbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="postadres" type="tns:Adres">
+        <xs:annotation>
+          <xs:documentation>Postadres van het schadeherstelbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="telefoon" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Telefoonnummer van het
+						schadeherstelbedrijf; maximaal 15 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fax" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Faxnummer van het schadeherstelbedrijf;
+						maximaal 15 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="email" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Emailadres van het
+						schadeherstelbedrijf; maximaal 100 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="rating" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>eXchange Rating van het
+						schadeherstelbedrijf. Varierend van A t/m E</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="latitude" type="xs:double">
+        <xs:annotation>
+          <xs:documentation>Breedtegraad van de locatie van het
+						schadeherstelbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="longitude" type="xs:double">
+        <xs:annotation>
+          <xs:documentation>Lengtegraad van de locatie van het
+						schadeherstelbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Claimsmanager">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Unieke identificatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="naam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Bedrijfsnaam van deze claimsmanager;
+						maximaal 50 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--DOSSIER-->
+  <xs:complexType name="Dossier">
+    <xs:sequence>
+      <!--Metadata-->
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer dat eXchange toegekend heeft
+						aan het dossier. Exact 11 cijfers.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="created" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Datum waarop het dossier is aangemaakt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastModified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Datum waarop het dossier voor het laatst is
+						gewijzigd</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fotosLastModified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Datum waarop voor het laatst de verzameling
+						bijbehorende foto's is aangepast</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="status" type="tns:DossierStatus">
+        <xs:annotation>
+          <xs:documentation>Status van het dossier in eXchange</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="voortgang" type="tns:DossierVoortgang">
+        <xs:annotation>
+          <xs:documentation>Voortgangsindicators voor dit
+						dossier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="melder" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Officiële naam van degene die dit
+						dossier heeft aangemeld; maximaal 100 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--Schadegegevens-->
+      <xs:element name="schadedatum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>De datum waarop de schade is ontstaan</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="schadeType" type="tns:SchadeType">
+        <xs:annotation>
+          <xs:documentation>Type van de schade, vooralsnog alleen
+						carrosserie schade. Later wordt dit uitgebreid met
+						glasschades.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="schadeOorzaak" type="tns:SchadeOorzaak">
+        <xs:annotation>
+          <xs:documentation>Oorzaak van de carrosserie schade</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="waarborgfonds" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Melding waarborgfonds.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="voertuig" type="tns:Voertuig">
+        <xs:annotation>
+          <xs:documentation>Voertuig-informatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="schade" type="tns:CarrosserieSchade">
+        <xs:annotation>
+          <xs:documentation>Schade-informatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="herstelGereed" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Vermoedde datum waarop het herstel
+						gereed is.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="voorexpertiseAanvraag" type="tns:VoorexpertiseAanvraag">
+        <xs:annotation>
+          <xs:documentation>Gevuld indien de schadehersteller
+						voorexpertise heeft aangevraagd</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="voorexpertiseResultaat" type="tns:ExpertiseResultaat">
+        <xs:annotation>
+          <xs:documentation>Gevuld indien het expertisebureau
+						voorexpertise heeft uitgevoerd</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="calculaties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="calculatie" nillable="true" type="tns:Calculatie">
+              <xs:annotation>
+                <xs:documentation>Calculaties die bij dit dossier
+									zijn geüpload</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--Verzekeringsgegevens-->
+      <xs:element minOccurs="0" name="polisdata" type="tns:Polisdata">
+        <xs:annotation>
+          <xs:documentation>Polisinformatie over het dossier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="verzekerde" type="tns:Persoon">
+        <xs:annotation>
+          <xs:documentation>Informatie over de verzekerde op dit
+						dossier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="berijder" type="tns:Persoon">
+        <xs:annotation>
+          <xs:documentation>Informatie over de berijder op dit
+						dossier, indien deze afwijkt van de verzekerde</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dekking" type="tns:Dekking">
+        <xs:annotation>
+          <xs:documentation>Controle of er dekking is afgegeven op
+						dit dossier. Ja/Nee of Onbekend</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="opmerkingDekking" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Toelichting op de afgegeven dekking;
+						maximaal 250 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!--Betrokken partijen-->
+      <xs:element minOccurs="0" name="referenties" type="tns:Referenties">
+        <xs:annotation>
+          <xs:documentation>Mogelijkheid tot het registeren van
+						eigen unieke identifiers op het dossier per rol.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verzekeraar" type="tns:Verzekeraar">
+        <xs:annotation>
+          <xs:documentation>De verzekeraar die de groene kaart van dit
+						dossier heeft afgegeven.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="schadehersteller" type="tns:Schadehersteller">
+        <xs:annotation>
+          <xs:documentation>De schadehersteller die dit dossier afhandelt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="dealer" type="tns:Schadehersteller">
+        <xs:annotation>
+          <xs:documentation>De dealer die bij dit dossier betrokken is.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="expertisebureau" type="tns:Expertisebureau">
+        <xs:annotation>
+          <xs:documentation>Het expertisebureau dat de eventuele expertise
+						op dit dossier uitvoert.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="volmacht" type="tns:Volmacht">
+        <xs:annotation>
+          <xs:documentation>Indien aanwezig, de volmacht die het
+						dossier administratief afhandelt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="atp" type="tns:ATP">
+        <xs:annotation>
+          <xs:documentation>Indien aanwezig, de tussenpersoon die de
+						schade heeft gemeld.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="claimsmanager" type="tns:Claimsmanager">
+        <xs:annotation>
+          <xs:documentation>Indien aanwezig, de claimsmanager die
+						namens de verzekeraar/volmacht het dossier
+						administratief afhandelt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--COMPLEXE ELEMENTEN-->
+  <xs:complexType name="Foto">
+    <xs:sequence>
+      <xs:element name="created" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Datum waarop de foto initieel is aangeboden
+						aan eXchange</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop deze foto
+						toebehoort</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fotoBytes" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Aantal bytes van de foto; foto's mogen
+						maximaal 200Kb groot zijn.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Plaats van de foto in de thumbnail lijst;
+						een waarde tussen 0 en 9</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastModified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Datum wanneer de foto voor het laatst is
+						aangepast</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mimeType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Mime type van de foto; maximaal 50 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DossierCreatieResultaat">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dossiernummer" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="messages" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Polisdata">
+    <xs:sequence>
+      <xs:element name="polisnummer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Polisnummer van de polis; maximaal 20
+						tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="eigenRisicoCarrosserie" type="xs:double">
+        <xs:annotation>
+          <xs:documentation>Eigen risico; mag niet kleiner zijn de 0</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="product" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Naam van het verzekeringsprocuct; maximaal
+						250 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="soortDekking" type="tns:SoortDekking">
+        <xs:annotation>
+          <xs:documentation>Soort dekking.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ingangsdatum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum waarop de polis ingaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="einddatum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum waarop de polis in verstreken</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="btw" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Inclusief BTW (true)
+						Exclusief BTW (false)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Persoon">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="voorletters" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Voorletters van de persoon; maximaal
+						50 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="tussenvoegsel" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Tussenvoegsel van de persoon;
+						maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="achternaam" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Achternaam van de persoon; maximaal 50
+						tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="geboortedatum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Geboortedatum van de persoon</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="adres" type="tns:Adres">
+        <xs:annotation>
+          <xs:documentation>Het adres</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="email" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Email adres van de persoon; maximaal 50
+						tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="mobiel" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Mobiel telefoonnummer van de persoon;
+						maximaal 15 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="telefoon" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Telefoonnummer van de persoon;
+						maximaal 15 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="bankrekening" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Bankrekening nummer van de persoon;
+						maximaal 18 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Referenties">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="expertise" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Referentienummer dat het
+						expertisebureau hanteert; maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="schadehersteller" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Referentienummer dat het
+						schadeherstelbedrijf hanteert; maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="verzekeraar" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Referentienummer dat de
+						verzekeringsmaatschappij hanteert; maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="volmacht" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Referentienummer dat de volmacht
+						hanteert; maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="atp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Referentienummer dat de
+						tussenpersoon hanteert; maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="claimsmanager" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Referentienummer dat de
+						claimsmanager hanteert; maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Voertuig">
+    <xs:sequence>
+      <xs:element name="kenteken" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Voor Nederlandse kentekens wordt het kenteken
+						verwacht zonder streepjes;
+						dus 29DRFF en niet 29-DR-FF. Maximaal 15 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element default="true" name="nederlandsKenteken" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Aangeven of het voertuig een nederlands
+						kenteken voert</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="merk" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Merk van het voertuig; maximaal 50 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="model" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Model van het voertuig; maximaal 50 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="type" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Type van het voertuig; maximaal 50 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="voertuigsoort" type="tns:VoertuigType">
+        <xs:annotation>
+          <xs:documentation>Type voertuigsoort, bron RDW</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="meldcode" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Meldcode van het voertuig; vier-cijfering
+						positief getal</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="vinnummer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Vinnummer van het voertuig; exact 17
+						tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="2" minOccurs="0" name="brandstof" type="tns:BrandstofType">
+        <xs:annotation>
+          <xs:documentation>Brandstof van het voertuig</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="kleur" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Kleur van het voertuig; maximaal 30 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="carrosserieVariant" type="tns:CarrosserieType">
+        <xs:annotation>
+          <xs:documentation>Carrosserie variant van het voertuig</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="aantalDeuren" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Aantal deuren van het voertuig; waarde ligt
+						tussen 1 en 9</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="aantalZitplaatsen" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Aantal zitplaatsen van het voertuig; waarde
+						ligt tussen 1 en 9</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="bouwjaar" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Bouwjaar van het voertuig. Jaartal altijd
+						in 4 cijfers</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="datumDeel1" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum deel 1</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="datumDeel2" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum deel 2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="datumEersteToelating" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum eerste toelating</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="aantalCilinders" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Aantal cilinders</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="cilinderInhoud" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Cilinder inhoud in cm3</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="vermogen" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>vermogen van in voertuig in kW</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="massaLeeg" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Massa leeg voertuig in kg</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CarrosserieSchade">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="eenheidTeller" type="tns:TellerType">
+        <xs:annotation>
+          <xs:documentation></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="tellerstand" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Afgelezen kilometerstand van het
+						voertuig op moment van reparatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="toestand" type="tns:ToestandType">
+        <xs:annotation>
+          <xs:documentation>Toestand van het voertuig</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="vastgelegdeSchade" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Tekstuele omschrijving van de schade. Dit veld komt in een volgende versie
+						te vervallen en
+						kan weggelaten worden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="aangrijppunt" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het aangrijppunt is de plaats op het
+						beschadigde voertuig waar het voertuig als
+						eerste is geraakt.
+						A - Bereik tussen de uiterste linkervoorzijde en de uiterste
+						rechtervoorzijde van het voertuig,
+						waar ondermeer het frontpaneel, koplampen, knipperlichten en
+						voorbumper mee worden bedoeld.
+						E - Bereik tussen de uiterste linkerachterzijde en de uiterste
+						rechterachterzijde van het
+						voertuig
+						I - Bovenzijde
+						J - Onderzijde
+						K - Totaal verlies
+						Rechterzijde (bijrijderkant)
+						B - Bereik tussen voorzijde spatscherm of zijkant bumper en de
+						A-stijl
+						C - bij een 2-deurs voertuig het bereik tussen A-stijl en B-stijl
+						en bij een 4-deurs voertuig
+						het bereik tussen de A-stijl en C-stijl.
+						D - Bereik tussen C-stijl en achterzijde zijpaneel of zijkant
+						achterkant
+						Linkerzijde (bestuurderskant)
+						F - Bereik tussen voorzijde spatscherm of zijkant bumper en de
+						A-stijl
+						G - bij een 2-deurs voertuig het bereik tussen A-stijl en B-stijl
+						en bij een 4-deurs voertuig
+						het bereik tussen de A-stijl en C-stijl.
+						H - Bereik tussen C-stijl en achterzijde zijpaneel of zijkant
+						achterkant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="stootrichting" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>De stootrichting is de richting van waaruit het
+						beschadigde voertuig is geraakt.
+						Indien het beschadigde voertuig recht van voren wordt geraakt dan is de
+						stootrichting 12 uur.
+						Wordt het voertuig van rechtsgeraakt in een hoek van 90 graden dan is
+						de stootrichting 3 uur. De
+						stootrichting is onafhankelijk van het feit of het voertuig aangereden wordt of
+						zelf een
+						aanrijding veroorzaakt.
+						Mogelijke keuzes: 1 t/m 12</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="schadelocaties" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Textuele omschrijving van de locaties
+						waar schade is; maximaal 200 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="schadeOmvang" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Textuele omschrijving van de omvang van
+						de schade; maximaal 200 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="reparatieduur" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Reparatieduur van de schade;
+						positief getal</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="aanvangHerstel" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum waarop met het herstel wordt begonnen.
+						Mag niet eerder zijn dan de schadedatum.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="schadecoordinaten" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Voor intern gebruik; kan weggelaten worden</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Adres">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="straat" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>De straatnaam. Maximaal 50 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="huisnummer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het huisnummer. Maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="toevoeging" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Eventuele toevoeging op het huisnummer.
+						Maximaal 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="postcode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Postcode - 4 cijfers en 2 letters voor Nederlandse postcodes, bijvoorbeeld
+						1000AB.
+						Maximaal 7 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="plaats" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Plaatsnaam. Maximaal 50 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element default="NL" minOccurs="0" name="land" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Landcode. Opties: NL voor Nederland, BE
+						voor Belgie en DE voor Duitsland. Twee tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VoorexpertiseAanvraag">
+    <xs:sequence>
+      <xs:element name="reden" type="tns:VoorexpertiseReden">
+        <xs:annotation>
+          <xs:documentation>Reden voor expertise</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="opmerking" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Eventuele opmerkingen voor het
+						expertisebureau; maximaal 2000 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="datum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>De uiterste datum waarop de aanvrager de
+						expertise uitgevoerd wil zien</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DossierVoortgang">
+    <xs:sequence>
+      <xs:element name="schade" type="tns:DossierVoortgangStatus">
+        <xs:annotation>
+          <xs:documentation>Zijn alle vereiste details over de schade
+						ingevuld?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="voertuig" type="tns:DossierVoortgangStatus">
+        <xs:annotation>
+          <xs:documentation>Zijn alle vereiste details over het voertuig
+						ingevuld?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="polis" type="tns:DossierVoortgangStatus">
+        <xs:annotation>
+          <xs:documentation>Zijn alle vereiste details over de polis
+						ingevuld?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="persoonsgegevens" type="tns:DossierVoortgangStatus">
+        <xs:annotation>
+          <xs:documentation>Zijn alle vereiste persoonsgegevens ingevuld?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fotos" type="tns:DossierVoortgangStatus">
+        <xs:annotation>
+          <xs:documentation>Zijn er minimaal 2 foto's aangeleverd?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="calculatie" type="tns:DossierVoortgangStatus">
+        <xs:annotation>
+          <xs:documentation>Is er minimaal 1 calculaties aangeleverd?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Calculatie">
+    <xs:sequence>
+      <xs:element name="xrecords" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>De inhoud van het bestand met de X-records</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="output90" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>De inhoud van het bestand met output90-weergave</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="print" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>De inhoud van het bestand met de printweergave</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="aangeboden" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Controle of deze calculatie is aangeboden</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="resultaat" type="tns:FilterResultaat">
+        <xs:annotation>
+          <xs:documentation>Indien deze calculatie is aangeboden, bevat
+						dit element het resultaat hiervan.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="expertiseResultaat" type="tns:ExpertiseResultaat">
+        <xs:annotation>
+          <xs:documentation>Het resultaat van de expertise.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Attachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="type" type="tns:AttachmentType">
+        <xs:annotation>
+          <xs:documentation>Het type attachment - per dossier is één
+						attachment per type toegestaan</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="filename" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>De bestandsnaam van de attachment, zonder pad
+						informatie. Maximaal 250 tekens lang</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="mimetype" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Mimetype van de attachment, bijvoorbeeld
+						application/pdf. Maximaal 50 tekens lang.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="contents" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Daadwerkelijke inhoud van de
+						attachment in Base64.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="lastModified" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Timestamp met de laatste wijziging op
+						dit attachment.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FilterResultaat">
+    <xs:sequence>
+      <xs:element name="advies" type="tns:FilterAdvies">
+        <xs:annotation>
+          <xs:documentation>Het gecombineerde eindadvies op deze
+						calculatie</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sampled" type="xs:boolean"/>
+      <xs:element name="statistischAdvies" type="tns:FilterAdvies">
+        <xs:annotation>
+          <xs:documentation>Het statistisch advies</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="technischAdvies" type="tns:FilterAdvies">
+        <xs:annotation>
+          <xs:documentation>Het technisch advies</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tariefControleOK" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Zijn de opgegeven tarieven in orde?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totaalBedrag" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Het geschatte totaalbedrag</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="toelichtingStatistischAdvies" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Eventuele toelichting op het statistisch
+						advies</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="toelichtingTechnischAdvies" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Eventuele toelichting op het technisch
+						advies</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="toelichtingTariefControle" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Eventuele toelichting op de tarieven
+						controle</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExpertiseResultaat">
+    <xs:sequence>
+      <xs:element name="status" type="tns:ExpertiseResultaatStatus">
+        <xs:annotation>
+          <xs:documentation>Status van de expertise (goed- of
+						afgekeurd)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="opmerkingen" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Opmerkingen bij de expertise; maximaal
+						2000 tekens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="uitgevoerdeExpertise" type="tns:FilterAdvies">
+        <xs:annotation>
+          <xs:documentation>De daadwerkelijk uitgevoerde expertisemethode</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AanbiedenResultaat">
+    <xs:sequence>
+      <xs:element name="code" type="tns:AanbiedenResultaatCode"/>
+      <xs:element name="toelichting" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Toelichting op bovenstaande waarde;
+						maximaal 2000 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DossierCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="statussen">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="10" minOccurs="0" name="status" type="tns:DossierStatus"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="acties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="10" minOccurs="0" name="actie" type="tns:DossierActie"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="dossiernummer" type="xs:long"/>
+      <xs:element minOccurs="0" name="kenteken" type="xs:string"/>
+      <xs:element minOccurs="0" name="serienummer" type="xs:int"/>
+      <xs:element minOccurs="0" name="crwamCode" type="xs:int"/>
+      <xs:element minOccurs="0" name="createdBefore" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdAfter" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastModifiedBefore" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastModifiedAfter" type="xs:string"/>
+      <xs:element minOccurs="0" name="schadedatumBefore" type="xs:date"/>
+      <xs:element minOccurs="0" name="schadedatumAfter" type="xs:date"/>
+      <xs:element minOccurs="0" name="closedBefore" type="xs:string"/>
+      <xs:element minOccurs="0" name="closedAfter" type="xs:string"/>
+      <xs:element minOccurs="0" name="referenties" type="tns:Referenties"/>
+      <xs:element minOccurs="0" name="relatienummerSchadehersteller" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>voor intern gebruik</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="relatienummerExpertisebureau" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>voor intern gebruik</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="relatienummerDealer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>voor intern gebruik</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="relatienummerClaimsmanager" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>voor intern gebruik</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PagingCriteria">
+    <xs:sequence>
+      <xs:element default="1" name="page" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>De gewenste pagina. Paginering begint bij 1</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element default="25" name="dossiersPerPage" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het gewenste aantal dossiers per pagina.
+						Toegestane waardes liggen tussen 1 en 1000.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderCriteria">
+    <xs:sequence>
+      <xs:element name="column" type="tns:Column">
+        <xs:annotation>
+          <xs:documentation>Kolom waarop gesorteerd wordt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="direction" type="tns:Direction">
+        <xs:annotation>
+          <xs:documentation>Volgorde van de sortering.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PagedResult">
+    <xs:sequence>
+      <xs:element name="page" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het nummer van de opgevraagde pagina</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pageCount" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het totaal aantal pagina's dat voldoet aan de
+						opgegeven criteria</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossierCount" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het totaal aantal dossiers dat voldoet aan de
+						opgegeven criteria</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiersPerPage" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het aantal dossiers dat per pagina wordt
+						getoond</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="timestamp" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Deze timestamp wordt gegenereerd op het moment dat de query wordt
+						uitgevoerd.
+						Zie de interfacedocumentatie voor het correcte gebruik van deze
+						timestamp.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="1000" minOccurs="0" name="dossier" type="tns:Dossier">
+              <xs:annotation>
+                <xs:documentation>De daadwerkelijke dossiers</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!--ENUMERATIES-->
+  <xs:simpleType name="FilterAdvies">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Tele">
+        <xs:annotation>
+          <xs:documentation>Expertise kan telefonisch worden
+						afgehandeld</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Admin">
+        <xs:annotation>
+          <xs:documentation>Expertise niet nodig, administratieve
+						afhandeling is voldoende</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fysiek">
+        <xs:annotation>
+          <xs:documentation>Fysieke expertise vereist</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Steekproef">
+        <xs:annotation>
+          <xs:documentation/>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Voorexpertise">
+        <xs:annotation>
+          <xs:documentation/>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExpertiseResultaatStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Goedgekeurd"/>
+      <xs:enumeration value="Afgekeurd"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DossierStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Nieuw"/>
+      <xs:enumeration value="Open"/>
+      <xs:enumeration value="Voorexpertise"/>
+      <xs:enumeration value="Aangeboden"/>
+      <xs:enumeration value="Expertise"/>
+      <xs:enumeration value="Gereed"/>
+      <xs:enumeration value="Geannuleerd"/>
+      <xs:enumeration value="Gesloten"/>
+      <xs:enumeration value="NietRouteerbaar"/>
+      <xs:enumeration value="NietAanTeBieden"/>
+      <xs:enumeration value="Afgekeurd"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SchadeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Carrosserie"/>
+      <xs:enumeration value="Glas"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SchadeOorzaak">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Aanrijding met voertuig"/>
+      <xs:enumeration value="Aanrijding met voetganger of fietser"/>
+      <xs:enumeration value="Aanrijding met wegmeubilair"/>
+      <xs:enumeration value="Aanrijding met vast object"/>
+      <xs:enumeration value="Aanrijding met dieren"/>
+      <xs:enumeration value="Brand"/>
+      <xs:enumeration value="Diefstal met braak/Diefstal partieel"/>
+      <xs:enumeration value="Inbraak"/>
+      <xs:enumeration value="Hagel"/>
+      <xs:enumeration value="Molest en/of vandalisme"/>
+      <xs:enumeration value="Omslaan"/>
+      <xs:enumeration value="Slippen"/>
+      <xs:enumeration value="Storm"/>
+      <xs:enumeration value="Verkeer"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SoortDekking">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Onbekend"/>
+      <xs:enumeration value="Casco"/>
+      <xs:enumeration value="BeperktCasco"/>
+      <xs:enumeration value="VoertuigenBrand"/>
+      <xs:enumeration value="VoertuigenDiefstal"/>
+      <xs:enumeration value="VoertuigenBrandEnDiefstal"/>
+      <xs:enumeration value="Voorruit"/>
+      <xs:enumeration value="VakantiedekkingsCasco"/>
+      <xs:enumeration value="VoertuigenBrandDiefstalEnStorm"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Dekking">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ja"/>
+      <xs:enumeration value="Nee"/>
+      <xs:enumeration value="Onbekend"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AttachmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EXPERTISERAPPORT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VoertuigType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AANHANGWAGEN"/>
+      <xs:enumeration value="BEDRIJFSAUTO"/>
+      <xs:enumeration value="BROMFIETS"/>
+      <xs:enumeration value="DRIEWIELIG MOTORVOERTUIG"/>
+      <xs:enumeration value="MOTORFIETS"/>
+      <xs:enumeration value="PERSONENAUTO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BrandstofType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DIESEL"/>
+      <xs:enumeration value="LPG (LIQUIFIED PETROL GAS)"/>
+      <xs:enumeration value="BENZINE"/>
+      <xs:enumeration value="ELEKTRICITEIT"/>
+      <xs:enumeration value="CNG (COMPRESSED NATURAL GAS; AARDGAS)"/>
+      <xs:enumeration value="WATERSTOF"/>
+      <xs:enumeration value="ALCOHOL"/>
+      <xs:enumeration value="CRYOGEEN (GAS ONDER HOGE DRUK BIJ LAGE TEMPERATUUR)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CarrosserieType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ONBEKEND"/>
+      <xs:enumeration value="CABRIOLET"/>
+      <xs:enumeration value="COUPE"/>
+      <xs:enumeration value="HATCHBACK"/>
+      <xs:enumeration value="SEDAN"/>
+      <xs:enumeration value="STATIONWAGEN"/>
+      <xs:enumeration value="TERREINVOERTUIG"/>
+      <xs:enumeration value="TREKKER"/>
+      <xs:enumeration value="GESLOTEN WAGEN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TellerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="K"/>
+      <xs:enumeration value="M"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ToestandType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Onbekend"/>
+      <xs:enumeration value="Goed"/>
+      <xs:enumeration value="Redelijk"/>
+      <xs:enumeration value="Matig"/>
+      <xs:enumeration value="Slecht"/>
+      <xs:enumeration value="Zie opmerkingen"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VoorexpertiseReden">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Total loss"/>
+      <xs:enumeration value="Vermoeden Total loss"/>
+      <xs:enumeration value="Onlogisch schadebeeld"/>
+      <xs:enumeration value="Melding waarborgfonds"/>
+      <xs:enumeration value="Overig"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DossierActie">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AanvullenVoertuig"/>
+      <xs:enumeration value="AanvullenPolisEnDekking"/>
+      <xs:enumeration value="AanvullenPersoonsgegevens"/>
+      <xs:enumeration value="SelecterenSchadehersteller"/>
+      <xs:enumeration value="AanvullenSchade"/>
+      <xs:enumeration value="ToevoegenFotos"/>
+      <xs:enumeration value="ToevoegenCalculaties"/>
+      <xs:enumeration value="AanvragenVoorexpertise"/>
+      <xs:enumeration value="UitvoerenExpertise"/>
+      <xs:enumeration value="AnnulerenDossier"/>
+      <xs:enumeration value="AfrondenDossier"/>
+      <xs:enumeration value="AanbiedenDossier"/>
+      <xs:enumeration value="Hertoewijzen"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DossierVoortgangStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Leeg"/>
+      <xs:enumeration value="Incompleet"/>
+      <xs:enumeration value="Compleet"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AanbiedenResultaatCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NietGeaccepteerd"/>
+      <xs:enumeration value="CalculatieTechnischAfgewezen"/>
+      <xs:enumeration value="TerExpertise"/>
+      <xs:enumeration value="Goedgekeurd"/>
+      <xs:enumeration value="TarievenAfgewezen"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Column">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Created"/>
+      <xs:enumeration value="Dossiernummer"/>
+      <xs:enumeration value="LastModified"/>
+      <xs:enumeration value="Kenteken"/>
+      <xs:enumeration value="NaamClaimsmanager"/>
+      <xs:enumeration value="NaamExpertisebureau"/>
+      <xs:enumeration value="NaamSchadehersteller"/>
+      <xs:enumeration value="NaamVerzekeraar"/>
+      <xs:enumeration value="NaamVolmacht"/>
+      <xs:enumeration value="ReferentieClaimsmanger"/>
+      <xs:enumeration value="ReferentieExpertisebureau"/>
+      <xs:enumeration value="ReferentieSchadehersteller"/>
+      <xs:enumeration value="ReferentieVerzekeraar"/>
+      <xs:enumeration value="ReferentieVolmacht"/>
+      <xs:enumeration value="Schadedatum"/>
+      <xs:enumeration value="Status"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Direction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending"/>
+      <xs:enumeration value="Descending"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService/WEB-INF/wsdl/DossierService_1.0_operations.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" version="1.0" xmlns:ns1="http://www.exchange.nl/exchange/wsdata/1.0" xmlns:tns="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.exchange.nl/exchange/wsdata/1.0" schemaLocation="DossierService_1.0_types.xsd"/>
+  <xs:element name="calculatie" type="ns1:Calculatie"/>
+  <xs:element name="dossier" type="ns1:Dossier"/>
+  <xs:element name="expertisebureau" type="ns1:Expertisebureau"/>
+  <xs:element name="addCalculatie" type="tns:addCalculatie"/>
+  <xs:element name="addCalculatieResponse" type="tns:addCalculatieResponse"/>
+  <xs:element name="updateFoto" type="tns:updateFoto"/>
+  <xs:element name="updateFotoResponse" type="tns:updateFotoResponse"/>
+  <xs:element name="deleteFoto" type="tns:deleteFoto"/>
+  <xs:element name="deleteFotoResponse" type="tns:deleteFotoResponse"/>
+  <xs:element name="getDossier" type="tns:getDossier"/>
+  <xs:element name="getDossierResponse" type="tns:getDossierResponse"/>
+  <xs:element name="getDossierPDF" type="tns:getDossierPDF"/>
+  <xs:element name="getDossierPDFResponse" type="tns:getDossierPDFResponse"/>
+  <xs:element name="getDossiers" type="tns:getDossiers"/>
+  <xs:element name="getDossiersResponse" type="tns:getDossiersResponse"/>
+  <xs:element name="getFoto" type="tns:getFoto"/>
+  <xs:element name="getFotoResponse" type="tns:getFotoResponse"/>
+  <xs:element name="getFotoIndexes" type="tns:getFotoIndexes"/>
+  <xs:element name="getFotoIndexesResponse" type="tns:getFotoIndexesResponse"/>
+  <xs:element name="getFotos" type="tns:getFotos"/>
+  <xs:element name="getFotosResponse" type="tns:getFotosResponse"/>
+  <xs:element name="createDossier" type="tns:createDossier"/>
+  <xs:element name="createDossierResponse" type="tns:createDossierResponse"/>
+  <xs:element name="createSchademelding" type="tns:createSchademelding"/>
+  <xs:element name="createSchademeldingResponse" type="tns:createSchademeldingResponse"/>
+  <xs:element name="updateCarrosserieSchade" type="tns:updateCarrosserieSchade"/>
+  <xs:element name="updateCarrosserieSchadeResponse" type="tns:updateCarrosserieSchadeResponse"/>
+  <xs:element name="updatePolisEnDekking" type="tns:updatePolisEnDekking"/>
+  <xs:element name="updatePolisEnDekkingResponse" type="tns:updatePolisEnDekkingResponse"/>
+  <xs:element name="setSchadehersteller" type="tns:setSchadehersteller"/>
+  <xs:element name="setSchadeherstellerResponse" type="tns:setSchadeherstellerResponse"/>
+  <xs:element name="updateVoertuig" type="tns:updateVoertuig"/>
+  <xs:element name="updateVoertuigResponse" type="tns:updateVoertuigResponse"/>
+  <xs:element name="updatePersoonsgegevens" type="tns:updatePersoonsgegevens"/>
+  <xs:element name="updatePersoonsgegevensResponse" type="tns:updatePersoonsgegevensResponse"/>
+  <xs:element name="aanvragenVoorexpertise" type="tns:aanvragenVoorexpertise"/>
+  <xs:element name="aanvragenVoorexpertiseResponse" type="tns:aanvragenVoorexpertiseResponse"/>
+  <xs:element name="aanbiedenDossier" type="tns:aanbiedenDossier"/>
+  <xs:element name="aanbiedenDossierResponse" type="tns:aanbiedenDossierResponse"/>
+  <xs:element name="afrondenDossier" type="tns:afrondenDossier"/>
+  <xs:element name="afrondenDossierResponse" type="tns:afrondenDossierResponse"/>
+  <xs:element name="annulerenDossier" type="tns:annulerenDossier"/>
+  <xs:element name="annulerenDossierResponse" type="tns:annulerenDossierResponse"/>
+  <xs:element name="setExpertiseResultaat" type="tns:setExpertiseResultaat"/>
+  <xs:element name="setExpertiseResultaatResponse" type="tns:setExpertiseResultaatResponse"/>
+  <xs:element name="hertoewijzenDossier" type="tns:hertoewijzenDossier"/>
+  <xs:element name="hertoewijzenDossierResponse" type="tns:hertoewijzenDossierResponse"/>
+  <xs:element name="updateReferentie" type="tns:updateReferentie"/>
+  <xs:element name="updateReferentieResponse" type="tns:updateReferentieResponse"/>
+  <xs:element name="routerenDossier" type="tns:routerenDossier"/>
+  <xs:element name="routerenDossierResponse" type="tns:routerenDossierResponse"/>
+  <xs:element name="heropenenDossier" type="tns:heropenenDossier"/>
+  <xs:element name="heropenenDossierResponse" type="tns:heropenenDossierResponse"/>
+  <xs:element name="getAttachment" type="tns:getAttachment"/>
+  <xs:element name="getAttachmentResponse" type="tns:getAttachmentResponse"/>
+  <xs:element name="deleteAttachment" type="tns:deleteAttachment"/>
+  <xs:element name="deleteAttachmentResponse" type="tns:deleteAttachmentResponse"/>
+  <xs:element name="updateAttachment" type="tns:updateAttachment"/>
+  <xs:element name="updateAttachmentResponse" type="tns:updateAttachmentResponse"/>
+  <xs:element name="ValidationFault" type="tns:ValidationFault"/>
+  <xs:element name="SecurityFault" type="tns:SecurityFault"/>
+  <xs:element name="ProcesFault" type="tns:ProcesFault"/>
+  <xs:element name="SystemFault" type="tns:SystemFault"/>
+  <!--Faults-->
+  <xs:complexType name="ValidationFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat een of meer van de opgegeven parameters niet voldoen aan de constraints op die parameters.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+      <xs:element name="details">
+        <xs:annotation>
+          <xs:documentation>Gedetailleerd overzicht van de parameters die niet voldoen; voor iedere parameter is een key aanwezig, met als value de foutmelding</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" minOccurs="0" type="xs:string"/>
+                  <xs:element name="value" minOccurs="0" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SecurityFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat het opgegeven relatienummer niet de vereiste toegang tot het opgegeven dossier</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcesFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat deze operatie niet is toegestaan binnen het proces van eXchange</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SystemFault">
+    <xs:annotation>
+      <xs:documentation>Geeft aan dat er een interne fout in het systeem is opgetreden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="faultactor" type="xs:string"/>
+      <xs:element name="faultstring" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Operation Types-->
+  <xs:complexType name="getFotos">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotosResponse">
+    <xs:sequence>
+      <xs:element name="foto" type="ns1:Foto" minOccurs="0" maxOccurs="10"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setSchadehersteller">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relatienummerSchadehersteller" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van het schadeherstelbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relatienummerDealer" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van het dealerbedrijf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setSchadeherstellerResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossierResponse">
+    <xs:sequence>
+      <xs:element name="dossier" type="ns1:Dossier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotoIndexes">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotoIndexesResponse">
+    <xs:sequence>
+      <xs:element name="index" type="xs:int" minOccurs="0" maxOccurs="10"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateVoertuig">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="voertuigdata" type="ns1:Voertuig"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateVoertuigResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="addCalculatie">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="xrecords" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het calculatiebestand in het xrecords formaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="output90" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het calculatiebestand in het output90 formaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="print" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het calculatiebestand in het print formaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addCalculatieResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="deleteFoto">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Index van de foto die verwijderd moet worden. Waarde ligt tussen 0 en 9</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteFotoResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="updatePolisEnDekking">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="polisdata" type="ns1:Polisdata">
+        <xs:annotation>
+          <xs:documentation>De polisgegevens</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dekking" type="ns1:Dekking">
+        <xs:annotation>
+          <xs:documentation>De dekking van dit dossier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="toelichting" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Toelichting op de afgegeven dekking; Maximaal 250 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePolisEnDekkingResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getFoto">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Index van de foto die opgehaald moet worden. Waarde ligt tussen 0 en 9</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFotoResponse">
+    <xs:sequence>
+      <xs:element name="foto" type="ns1:Foto"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createSchademelding">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int"/>
+      <xs:element name="nederlandsKenteken" type="xs:boolean"/>
+      <xs:element name="kenteken" type="xs:string"/>
+      <xs:element name="serienummer" type="xs:int"/>
+      <xs:element name="polisnummer" type="xs:string"/>
+      <xs:element name="crwamCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="schadedatum" type="xs:date"/>
+      <xs:element name="schadeOorzaak" type="ns1:SchadeOorzaak"/>
+      <xs:element name="waarborgfonds" type="xs:boolean"/>
+      <xs:element name="schadecoordinaten" type="xs:string" minOccurs="0"/>
+      <xs:element name="handmatigVerrijken" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createSchademeldingResponse">
+    <xs:sequence>
+      <xs:element name="dossiercreatieresultaat" type="ns1:DossierCreatieResultaat" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateFoto">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fotoBytes" type="xs:base64Binary" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Aantal bytes van de foto</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mimeType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Mime type van de foto</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Plaats van de foto</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateFotoResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="createDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nederlandsKenteken" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Aangeven of het voertuig een nederlands kenteken voert</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kenteken" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Nederlandse kentekens worden alleen zonder streepjes geaccepteerd.
+            Maximale lengte is 15 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het serienummer van de verzekeraar</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="polisnummer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Het polisnummer op de groene kaart (dus met uitzondering van het serienummer).
+            Maximale lengte is 20 tekens.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="crwamCode" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indien van toepassing: de CRWAM code op de groene kaart</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="schadedatum" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum waarop de schade is ontstaan. Deze datum mag niet in de toekomst liggen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="schadeOorzaak" type="ns1:SchadeOorzaak">
+        <xs:annotation>
+          <xs:documentation>Schade oorzaak</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="waarborgfonds" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Valt de schade onder het waarborgfonds?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createDossierResponse">
+    <xs:sequence>
+      <xs:element name="dossiernummer" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateCarrosserieSchade">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="carrosserieschade" type="ns1:CarrosserieSchade"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateCarrosserieSchadeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="aanvragenVoorexpertise">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer waarop de method van toepassing is</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="aanvraag" type="ns1:VoorexpertiseAanvraag"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aanvragenVoorexpertiseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="setExpertiseResultaat">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int"/>
+      <xs:element name="dossiernummer" type="xs:long"/>
+      <xs:element name="expertiseResultaat" type="ns1:ExpertiseResultaat"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setExpertiseResultaatResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getDossiers">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="criteria" type="ns1:DossierCriteria">
+        <xs:annotation>
+          <xs:documentation>Criteria voor het filteren van dossiers</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paging" type="ns1:PagingCriteria">
+        <xs:annotation>
+          <xs:documentation>Criteria voor het pagineren van het resultaat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="order" type="ns1:OrderCriteria" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Criteria voor het ordenen van de resultaten</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossiersResponse">
+    <xs:sequence>
+      <xs:element name="result" type="ns1:PagedResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossierPDF">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDossierPDFResponse">
+    <xs:sequence>
+      <xs:element name="pdf" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>De bytes van het gegenereerde PDF bestand</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePersoonsgegevens">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verzekerde" type="ns1:Persoon">
+        <xs:annotation>
+          <xs:documentation>NAW-gegevens van de verzekerde</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="berijder" type="ns1:Persoon" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>De NAW-gegevens van de berijder van het voertuig toen de schade werd opgelopen. Alleen van toepassing indien de berijder niet de verzekerde is.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePersoonsgegevensResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="aanbiedenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aanbiedenDossierResponse">
+    <xs:sequence>
+      <xs:element name="resultaat" type="ns1:AanbiedenResultaat">
+        <xs:annotation>
+          <xs:documentation>Het resultaat van het aanbieden van dit dossier.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="afrondenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="herstelGereed" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Datum waarop het herstel gereed is. Mag maximaal 2 dagen in de toekomst liggen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="afrondenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="annulerenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="annulerenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="hertoewijzenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nieuwRelatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Het relatienummer waarnaartoe toegewezen wordt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hertoewijzenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="updateReferentie">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze method aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Het dossiernummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="referentie" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>De referentiecode van deze gebruiker. Referentiecodes mogen maximaal 20 tekens groot zijn.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateReferentieResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="routerenDossier">
+    <!--Intern gebruik-->
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int"/>
+      <xs:element name="dossiernummer" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="routerenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="heropenenDossier">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Relatienummer van de partij die deze operatie aanroept</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dossiernummer" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Dossiernummer van het dossier dat heropend dient te worden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="heropenenDossierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getAttachment">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int" minOccurs="0"/>
+      <xs:element name="dossiernummer" type="xs:long" minOccurs="0"/>
+      <xs:element name="attachmentType" type="ns1:AttachmentType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAttachmentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="ns1:Attachment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteAttachment">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int" minOccurs="0"/>
+      <xs:element name="dossiernummer" type="xs:long" minOccurs="0"/>
+      <xs:element name="attachmentType" type="ns1:AttachmentType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteAttachmentResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="updateAttachment">
+    <xs:sequence>
+      <xs:element name="relatienummer" type="xs:int" minOccurs="0"/>
+      <xs:element name="dossiernummer" type="xs:long" minOccurs="0"/>
+      <xs:element name="attachment" type="ns1:Attachment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateAttachmentResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService/WEB-INF/wsdl/nl/exchange/webservices/_10/VoertuigVerrijkingsService_types.xsd</con:url><con:content><![CDATA[<xs:schema version="1.0" targetNamespace="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService" xmlns:tns="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="verrijkVoertuig" type="tns:verrijkVoertuig"/>
+  <xs:complexType name="verrijkVoertuig">
+    <xs:sequence>
+      <xs:element name="kenteken" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://esbacc.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://esbacc.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://esbacc2.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://esbdev.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://esbprod.sg.colo.virtualsciences.nl:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://esbprod.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://esbtest.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MBP.fritz.box:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MBP.fritz.box:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MacBook-Pro.fritz.box:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MacBook-Pro.fritz.box:8080/VoertuigVerrijkingServiceWeb/sign</con:endpoint><con:endpoint>http://frenks-MacBook-Pro.fritz.box:8081/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MacBook-Pro.local:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://frenks-MacBook-Pro:8081/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>https://frenks-MBP.fritz.box:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>https://frenks-MacBook-Pro.fritz.box:8000/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>https://frenks-MacBook-Pro.local:8000/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:endpoint>https://portaltest.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getVoertuig" bindingOperationName="getVoertuig" type="Request-Response" outputName="getVoertuigResponse" inputName="getVoertuigRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="d0c9b083-5a5e-4194-b1e6-2d08c08dabb4"><con:settings/><con:call name="bmw1" id="4b3f09c0-4a20-4ff8-9062-e2868ba3c170"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://frenks-MacBook-Pro.fritz.box:8000/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header>
+     
+   </soapenv:Header>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>54xvsn</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:password/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="porsche" id="a93b099d-5e51-4f60-aa3b-d7e935e3f509"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://frenks-MacBook-Pro.local:8000/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>3svl76</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="sterretjes" id="601b53f5-8114-44da-bb19-ec16d61f53b9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://esbprod.sg.colo.virtualsciences.nl:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>24HGKZ</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="sql injection" id="37b24428-86d5-431f-a95a-2022b56edc2d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.fritz.box:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>54 '1' == '1'</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Copy of bmw1" id="f07981cc-68ae-4540-9038-ab3184c0bfdd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.fritz.box:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>67zsbl</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="stijn" id="0f170bd8-ecd9-4930-8b5c-440cbfb25262"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>04rtz7</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e382e80f-2548-4f19-92f9-c8a4c4818ee4" name="Request 7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.fritz.box:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1" id="4afffd24-549c-45a6-9509-f031f133b001"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="opvragengegevens" searchProperties="true" id="5cb9e500-9b3b-4841-89f4-b7d4c1a52df8"><con:settings/><con:testStep type="request" name="getVoertuig -  peugeot" id="5aca0d82-026e-4e67-b5b7-6e59f7de1f22"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding</con:interface><con:operation>getVoertuig</con:operation><con:request name="getVoertuig -  peugeot" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="a067649c-6f7d-4761-846e-60f8288b077d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>15zkg8</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="367f89ee-c564-47b1-82db-128002118052"/><con:assertion type="Schema Compliance" name="Schema Compliance" id="68a4980b-4680-4507-9bc9-3ba75f1df165"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getVoertuig -  HONDA civic" id="29679175-06ef-4d58-bccd-21f5718f8e49"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding</con:interface><con:operation>getVoertuig</con:operation><con:request name="getVoertuig -  HONDA civic" outgoingWss="" incomingWss="" timeout="" sslKeystore="student.jks" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="24304598-a43b-4cdb-893e-c469043cdc5e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>67jjl2</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="d4671b1e-4850-4661-ac9d-ab97f8e4eb00"/><con:assertion type="Schema Compliance" name="Schema Compliance" id="001092fc-fe50-44a2-8690-a81704df9d19"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getVoertuig - outlander phev" id="791f3087-8173-4b35-8868-c01ca8248e4d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding</con:interface><con:operation>getVoertuig</con:operation><con:request name="getVoertuig - outlander phev" outgoingWss="sign" incomingWss="" timeout="" sslKeystore="client.jks" useWsAddressing="false" useWsReliableMessaging="false" id="e4069ddd-0d74-4687-8058-78e4b113a10d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>3svl76</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="e3d30319-0c76-4667-81e7-b16a11dfc7ad"/><con:assertion type="Schema Compliance" name="Schema Compliance" id="ed153b46-dbd2-4a5f-b330-3f11e76311d7"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:username/><con:password/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="38c64dbd-51f0-4b27-8166-183c19ae1d36" name="getVoertuig - bmw1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding</con:interface><con:operation>getVoertuig</con:operation><con:request name="getVoertuig - bmw1" outgoingWss="" incomingWss="" timeout="" sslKeystore="student.jks" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="a8d25d65-911e-4b4d-8de6-b916b4556ef6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>54xvsn</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="054e6ea1-5604-4ee0-9a0b-32e5666598dc" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="687086a8-52cb-43bf-ab1a-01d20bb177b0" name="Not SOAP Fault"/><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getVoertuig - outlander phevzonder sign" id="6c6ffe7d-3645-4b53-9f25-d9b3efe6221b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding</con:interface><con:operation>getVoertuig</con:operation><con:request name="getVoertuig - outlander phevzonder sign" outgoingWss="" incomingWss="" timeout="" sslKeystore="client.jks" useWsAddressing="false" useWsReliableMessaging="false" id="e4069ddd-0d74-4687-8058-78e4b113a10d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+            <kenteken>3svl76</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="e3d30319-0c76-4667-81e7-b16a11dfc7ad"/><con:assertion type="Schema Compliance" name="Schema Compliance" id="ed153b46-dbd2-4a5f-b330-3f11e76311d7"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:username/><con:password/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="outlander phev sign and verify signature" id="c00a1e2b-0f3a-44b8-a071-bab252de9e08"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding</con:interface><con:operation>getVoertuig</con:operation><con:request name="outlander phev sign and verify signature" outgoingWss="sign" incomingWss="verify" timeout="" sslKeystore="client.jks" useWsAddressing="false" useWsReliableMessaging="false" id="e4069ddd-0d74-4687-8058-78e4b113a10d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://frenks-MacBook-Pro.local:8080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:voer1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuig>
+         <voer1:verrijkVoertuig>
+             <kenteken>3svl76</kenteken>
+         </voer1:verrijkVoertuig>
+      </voer:getVoertuig>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response" id="e3d30319-0c76-4667-81e7-b16a11dfc7ad"/><con:assertion type="Schema Compliance" name="Schema Compliance" id="ed153b46-dbd2-4a5f-b330-3f11e76311d7"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="WSS Status Assertion" id="b470f3ed-37fa-4f6e-96cc-a14c680a4b0a" name="WS-Security Status"/><con:credentials><con:username/><con:password/><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="d2ffc722-27ed-4325-938d-f5acc8c87be3" port="9080" path="/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService" host="frenks-MacBook-Pro.fritz.box" name="VoertuigVerrijkingServiceMockService" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="getVoertuig" id="151f25d4-8148-49de-9e45-464a940b7ded" interface="VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding" operation="getVoertuig"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="9ebb574f-f351-469a-8270-a32ad2ac53ad" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>def holder = new com.eviware.soapui.support.XmlHolder( mockRequest.requestContent )
+// get arguments and sum
+
+requestContext.kenteken =  holder["//kenteken"]</con:script><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:voer="http://SchadegarantLibrary/VoertuigVerrijking">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <voer:getVoertuigResponse>
+         <voertuig>
+            <kenteken>${kenteken}</kenteken>
+            <nederlandsKenteken>true</nederlandsKenteken>
+            <merk>ford</merk>
+            <model>TRANSIT</model>
+            <type>350 EL DL</type>
+            <voertuigsoort>BEDRIJFSAUTO</voertuigsoort>
+            <meldcode>6959</meldcode>
+            <vinnummer>WF0NXXTTFNAA66959</vinnummer>
+            <brandstof>LPG (LIQUIFIED PETROL GAS)</brandstof>
+            <kleur>ONBEKEND</kleur>
+            <carrosserieVariant>ONBEKEND</carrosserieVariant>
+            <bouwjaar>2011</bouwjaar>
+            <datumDeel1>2011-04-19</datumDeel1>
+            <datumDeel2>2011-04-27</datumDeel2>
+            <datumEersteToelating>2011-04-19</datumEersteToelating>
+            <aantalCilinders>4</aantalCilinders>
+            <cilinderInhoud>2261</cilinderInhoud>
+            <massaLeeg>1700</massaLeeg>
+         </voertuig>
+      </voer:getVoertuigResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://SchadegarantLibrary/VoertuigVerrijking/Binding/VoertuigVerrijking/getVoertuigResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer><con:crypto><con:source>/Users/frenkochse/src/datapower/wssecurity/client.jks</con:source><con:password>qw34er</con:password><con:type>KEYSTORE</con:type></con:crypto><con:crypto><con:source>/Users/frenkochse/src/datapower/wssecurity/client.jks</con:source><con:password>qw34er</con:password><con:type>TRUSTSTORE</con:type></con:crypto><con:crypto><con:source>/Users/frenkochse/src/datapower/voertuig/student.jks</con:source><con:password>qw34er</con:password><con:type>KEYSTORE</con:type></con:crypto><con:incoming><con:name>verify</con:name><con:decryptCrypto>client.jks</con:decryptCrypto><con:signatureCrypto>client.jks</con:signatureCrypto><con:decryptPassword>qw34er</con:decryptPassword></con:incoming><con:outgoing><con:name>sign</con:name><con:entry type="Signature" password="qw34er" username="soapuimockserver"><con:configuration><crypto>client.jks</crypto><keyIdentifierType>2</keyIdentifierType><signatureAlgorithm/><signatureCanonicalization/><useSingleCert>true</useSingleCert><prependSignature>true</prependSignature><digestAlgorithm/><customTokenValueType/><customTokenId/><signaturePart>&lt;xml-fragment/></signaturePart><signaturePart>&lt;xml-fragment/></signaturePart><signaturePart>&lt;xml-fragment/></signaturePart><signaturePart>&lt;xml-fragment/></signaturePart><signaturePart>&lt;xml-fragment/></signaturePart><signaturePart>&lt;xml-fragment/></signaturePart><signaturePart>&lt;xml-fragment/></signaturePart></con:configuration></con:entry></con:outgoing></con:wssContainer><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

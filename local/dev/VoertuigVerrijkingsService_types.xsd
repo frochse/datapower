@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService" xmlns:tns="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="verrijkVoertuig" type="tns:verrijkVoertuig"/>
+  <xs:complexType name="verrijkVoertuig">
+    <xs:sequence>
+      <xs:element name="kenteken" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

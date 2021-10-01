@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="VoertuigVerrijking" targetNamespace="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bons2="http://www.exchange.nl/exchange/wsdata/1.0" xmlns:bons3="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" xmlns:tns="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:bons1="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://SchadegarantLibrary/VoertuigVerrijking">
+      <xsd:import namespace="http://www.exchange.nl/exchange/wsdata/1.0" schemaLocation="DossierService_1.0_types.xsd"/>
+      <xsd:import namespace="http://www.exchange.nl/exchange/webservices/dossierservice/1.0" schemaLocation="DossierService_1.0_operations.xsd"/>
+      <xsd:import namespace="http://www.schadegarant.nl/exchange/VoertuigVerrijkingsService" schemaLocation="VoertuigVerrijkingsService_types.xsd"/>
+      <xsd:element name="getVoertuig">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="bons1:verrijkVoertuig"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getVoertuigResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="voertuig" nillable="true" type="bons2:Voertuig"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SecurityFault_element" nillable="true" type="bons3:SecurityFault"/>
+      <xsd:element name="SystemFault_element" nillable="true" type="bons3:SystemFault"/>
+      <xsd:element name="ValidationFault_element" nillable="true" type="bons3:ValidationFault"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getVoertuigRequestMsg">
+    <wsdl:part element="tns:getVoertuig" name="getVoertuigParameters"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuigResponseMsg">
+    <wsdl:part element="tns:getVoertuigResponse" name="getVoertuigResult"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuig_SecurityFaultMsg">
+    <wsdl:part element="tns:SecurityFault_element" name="SecurityFault"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuig_SytemFaultMsg">
+    <wsdl:part element="tns:SystemFault_element" name="SytemFault"/>
+  </wsdl:message>
+  <wsdl:message name="getVoertuig_VailidationFaultMsg">
+    <wsdl:part element="tns:ValidationFault_element" name="VailidationFault"/>
+  </wsdl:message>
+  <wsdl:portType name="VoertuigVerrijking">
+    <wsdl:operation name="getVoertuig">
+      <wsdl:input message="tns:getVoertuigRequestMsg" name="getVoertuigRequest"/>
+      <wsdl:output message="tns:getVoertuigResponseMsg" name="getVoertuigResponse"/>
+      <wsdl:fault message="tns:getVoertuig_SecurityFaultMsg" name="SecurityFault"/>
+      <wsdl:fault message="tns:getVoertuig_SytemFaultMsg" name="SytemFault"/>
+      <wsdl:fault message="tns:getVoertuig_VailidationFaultMsg" name="VailidationFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

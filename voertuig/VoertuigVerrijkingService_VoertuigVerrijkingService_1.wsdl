@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="VoertuigVerrijkingService_VoertuigVerrijkingHttp_Service" targetNamespace="http://SchadegarantLibrary/VoertuigVerrijking/Binding" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:Port_0="http://SchadegarantLibrary/VoertuigVerrijking" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://SchadegarantLibrary/VoertuigVerrijking/Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="VoertuigVerrijkingService.wsdl" namespace="http://SchadegarantLibrary/VoertuigVerrijking"/>
+  <wsdl:binding name="VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding" type="Port_0:VoertuigVerrijking">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getVoertuig">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getVoertuigRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVoertuigResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SecurityFault">
+        <soap:fault name="SecurityFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="SytemFault">
+        <soap:fault name="SytemFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="VailidationFault">
+        <soap:fault name="VailidationFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VoertuigVerrijkingService_VoertuigVerrijkingHttpService">
+    <wsdl:port binding="this:VoertuigVerrijkingService_VoertuigVerrijkingHttpBinding" name="VoertuigVerrijkingService_VoertuigVerrijkingHttpPort">
+      <soap:address location="http://localhost:9080/VoertuigVerrijkingServiceWeb/sca/VoertuigVerrijkingService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
